@@ -22,7 +22,7 @@ else
 if [ "$control_pc_use_password" = "0" ]; then
 ssh -tt $control_pc_uname@$control_pc_ip_address << EOSSH
 
-docker exec -it realtime_docker bash
+docker exec -it docker_visp bash
 cd $control_pc_franka_interface_path
 source $rosmaster_path $control_pc_ip_address $workstation_ip_address
 source $catkin_ws_setup_path
@@ -32,7 +32,7 @@ EOSSH
 else
 sshpass -p "$control_pc_password" ssh -tt -o StrictHostKeyChecking=no $control_pc_uname@$control_pc_ip_address << EOSSH
 
-docker exec -it realtime_docker bash
+docker exec -it docker_visp bash 
 cd $control_pc_franka_interface_path
 source $rosmaster_path $control_pc_ip_address $workstation_ip_address
 source $catkin_ws_setup_path
